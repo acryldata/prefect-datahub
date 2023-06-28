@@ -363,9 +363,9 @@ class DatahubEmitter(Block):
             str(prefect_future.task_run.id): prefect_future.task_run.task_key
             for prefect_future in flow_run_ctx.task_run_futures
         }
-        
+
         get_run_logger().info("Emitting tasks to datahub...")
-        
+
         for node in graph_json:
             datajob_urn = DataJobUrn.create_from_ids(
                 data_flow_urn=str(dataflow.urn),

@@ -91,210 +91,202 @@ def test_emit_flow(
         f"urn:li:dataFlow:(prefect,{platform_instance}.{flow_run_ctx.flow.name},prod)"
     )
 
-    assert mock_emitter.method_calls[1].args[0].aspectName == "dataFlowInfo"
-    assert mock_emitter.method_calls[1].args[0].entityUrn == expected_dataflow_urn
-    assert mock_emitter.method_calls[2].args[0].aspectName == "ownership"
-    assert mock_emitter.method_calls[2].args[0].entityUrn == expected_dataflow_urn
-    assert mock_emitter.method_calls[3].args[0].aspectName == "globalTags"
-    assert mock_emitter.method_calls[3].args[0].entityUrn == expected_dataflow_urn
-    assert mock_emitter.method_calls[4].args[0].aspectName == "browsePaths"
-    assert mock_emitter.method_calls[4].args[0].entityUrn == expected_dataflow_urn
+    assert mock_emitter.method_calls[1][1][0].aspectName == "dataFlowInfo"
+    assert mock_emitter.method_calls[1][1][0].entityUrn == expected_dataflow_urn
+    assert mock_emitter.method_calls[2][1][0].aspectName == "ownership"
+    assert mock_emitter.method_calls[2][1][0].entityUrn == expected_dataflow_urn
+    assert mock_emitter.method_calls[3][1][0].aspectName == "globalTags"
+    assert mock_emitter.method_calls[3][1][0].entityUrn == expected_dataflow_urn
+    assert mock_emitter.method_calls[4][1][0].aspectName == "browsePaths"
+    assert mock_emitter.method_calls[4][1][0].entityUrn == expected_dataflow_urn
     assert (
-        mock_emitter.method_calls[8].args[0].aspectName
-        == "dataProcessInstanceProperties"
+        mock_emitter.method_calls[8][1][0].aspectName == "dataProcessInstanceProperties"
     )
     assert (
-        mock_emitter.method_calls[8].args[0].entityUrn
+        mock_emitter.method_calls[8][1][0].entityUrn
         == "urn:li:dataProcessInstance:a95d24db6abd98384fc1d4c8540098a4"
     )
     assert (
-        mock_emitter.method_calls[9].args[0].aspectName
+        mock_emitter.method_calls[9][1][0].aspectName
         == "dataProcessInstanceRelationships"
     )
     assert (
-        mock_emitter.method_calls[9].args[0].entityUrn
+        mock_emitter.method_calls[9][1][0].entityUrn
         == "urn:li:dataProcessInstance:a95d24db6abd98384fc1d4c8540098a4"
     )
     assert (
-        mock_emitter.method_calls[10].args[0].aspectName
-        == "dataProcessInstanceRunEvent"
+        mock_emitter.method_calls[10][1][0].aspectName == "dataProcessInstanceRunEvent"
     )
     assert (
-        mock_emitter.method_calls[10].args[0].entityUrn
+        mock_emitter.method_calls[10][1][0].entityUrn
         == "urn:li:dataProcessInstance:a95d24db6abd98384fc1d4c8540098a4"
     )
-    assert mock_emitter.method_calls[11].args[0].aspectName == "dataJobInfo"
+    assert mock_emitter.method_calls[11][1][0].aspectName == "dataJobInfo"
     assert (
-        mock_emitter.method_calls[11].args[0].entityUrn
+        mock_emitter.method_calls[11][1][0].entityUrn
         == f"urn:li:dataJob:({expected_dataflow_urn},__main__.extract)"
     )
-    assert mock_emitter.method_calls[12].args[0].aspectName == "dataJobInputOutput"
+    assert mock_emitter.method_calls[12][1][0].aspectName == "dataJobInputOutput"
     assert (
-        mock_emitter.method_calls[12].args[0].entityUrn
+        mock_emitter.method_calls[12][1][0].entityUrn
         == f"urn:li:dataJob:({expected_dataflow_urn},__main__.extract)"
     )
-    assert mock_emitter.method_calls[13].args[0].aspectName == "ownership"
+    assert mock_emitter.method_calls[13][1][0].aspectName == "ownership"
     assert (
-        mock_emitter.method_calls[13].args[0].entityUrn
+        mock_emitter.method_calls[13][1][0].entityUrn
         == f"urn:li:dataJob:({expected_dataflow_urn},__main__.extract)"
     )
-    assert mock_emitter.method_calls[14].args[0].aspectName == "globalTags"
+    assert mock_emitter.method_calls[14][1][0].aspectName == "globalTags"
     assert (
-        mock_emitter.method_calls[14].args[0].entityUrn
+        mock_emitter.method_calls[14][1][0].entityUrn
         == f"urn:li:dataJob:({expected_dataflow_urn},__main__.extract)"
     )
-    assert mock_emitter.method_calls[15].args[0].aspectName == "browsePaths"
+    assert mock_emitter.method_calls[15][1][0].aspectName == "browsePaths"
     assert (
-        mock_emitter.method_calls[15].args[0].entityUrn
+        mock_emitter.method_calls[15][1][0].entityUrn
         == f"urn:li:dataJob:({expected_dataflow_urn},__main__.extract)"
     )
     assert (
-        mock_emitter.method_calls[16].args[0].aspectName
+        mock_emitter.method_calls[16][1][0].aspectName
         == "dataProcessInstanceProperties"
     )
     assert (
-        mock_emitter.method_calls[16].args[0].entityUrn
+        mock_emitter.method_calls[16][1][0].entityUrn
         == "urn:li:dataProcessInstance:bf5eab177af0097bbff6a41694f39af9"
     )
     assert (
-        mock_emitter.method_calls[17].args[0].aspectName
+        mock_emitter.method_calls[17][1][0].aspectName
         == "dataProcessInstanceRelationships"
     )
     assert (
-        mock_emitter.method_calls[17].args[0].entityUrn
+        mock_emitter.method_calls[17][1][0].entityUrn
         == "urn:li:dataProcessInstance:bf5eab177af0097bbff6a41694f39af9"
     )
     assert (
-        mock_emitter.method_calls[18].args[0].aspectName
-        == "dataProcessInstanceRunEvent"
+        mock_emitter.method_calls[18][1][0].aspectName == "dataProcessInstanceRunEvent"
     )
     assert (
-        mock_emitter.method_calls[18].args[0].entityUrn
+        mock_emitter.method_calls[18][1][0].entityUrn
         == "urn:li:dataProcessInstance:bf5eab177af0097bbff6a41694f39af9"
     )
     assert (
-        mock_emitter.method_calls[19].args[0].aspectName
-        == "dataProcessInstanceRunEvent"
+        mock_emitter.method_calls[19][1][0].aspectName == "dataProcessInstanceRunEvent"
     )
     assert (
-        mock_emitter.method_calls[19].args[0].entityUrn
+        mock_emitter.method_calls[19][1][0].entityUrn
         == "urn:li:dataProcessInstance:bf5eab177af0097bbff6a41694f39af9"
     )
-    assert mock_emitter.method_calls[20].args[0].aspectName == "dataJobInfo"
+    assert mock_emitter.method_calls[20][1][0].aspectName == "dataJobInfo"
     assert (
-        mock_emitter.method_calls[20].args[0].entityUrn
+        mock_emitter.method_calls[20][1][0].entityUrn
         == f"urn:li:dataJob:({expected_dataflow_urn},__main__.load)"
     )
-    assert mock_emitter.method_calls[21].args[0].aspectName == "dataJobInputOutput"
+    assert mock_emitter.method_calls[21][1][0].aspectName == "dataJobInputOutput"
     assert (
-        mock_emitter.method_calls[21].args[0].entityUrn
+        mock_emitter.method_calls[21][1][0].entityUrn
         == f"urn:li:dataJob:({expected_dataflow_urn},__main__.load)"
     )
-    assert mock_emitter.method_calls[22].args[0].aspectName == "ownership"
+    assert mock_emitter.method_calls[22][1][0].aspectName == "ownership"
     assert (
-        mock_emitter.method_calls[22].args[0].entityUrn
+        mock_emitter.method_calls[22][1][0].entityUrn
         == f"urn:li:dataJob:({expected_dataflow_urn},__main__.load)"
     )
-    assert mock_emitter.method_calls[23].args[0].aspectName == "globalTags"
+    assert mock_emitter.method_calls[23][1][0].aspectName == "globalTags"
     assert (
-        mock_emitter.method_calls[23].args[0].entityUrn
+        mock_emitter.method_calls[23][1][0].entityUrn
         == f"urn:li:dataJob:({expected_dataflow_urn},__main__.load)"
     )
-    assert mock_emitter.method_calls[24].args[0].aspectName == "browsePaths"
+    assert mock_emitter.method_calls[24][1][0].aspectName == "browsePaths"
     assert (
-        mock_emitter.method_calls[24].args[0].entityUrn
+        mock_emitter.method_calls[24][1][0].entityUrn
         == f"urn:li:dataJob:({expected_dataflow_urn},__main__.load)"
     )
     assert (
-        mock_emitter.method_calls[25].args[0].aspectName
+        mock_emitter.method_calls[25][1][0].aspectName
         == "dataProcessInstanceProperties"
     )
     assert (
-        mock_emitter.method_calls[25].args[0].entityUrn
+        mock_emitter.method_calls[25][1][0].entityUrn
         == "urn:li:dataProcessInstance:095673536b61e6f25c7691af0d2cc317"
     )
     assert (
-        mock_emitter.method_calls[26].args[0].aspectName
+        mock_emitter.method_calls[26][1][0].aspectName
         == "dataProcessInstanceRelationships"
     )
     assert (
-        mock_emitter.method_calls[26].args[0].entityUrn
+        mock_emitter.method_calls[26][1][0].entityUrn
         == "urn:li:dataProcessInstance:095673536b61e6f25c7691af0d2cc317"
     )
     assert (
-        mock_emitter.method_calls[27].args[0].aspectName
-        == "dataProcessInstanceRunEvent"
+        mock_emitter.method_calls[27][1][0].aspectName == "dataProcessInstanceRunEvent"
     )
     assert (
-        mock_emitter.method_calls[27].args[0].entityUrn
+        mock_emitter.method_calls[27][1][0].entityUrn
         == "urn:li:dataProcessInstance:095673536b61e6f25c7691af0d2cc317"
     )
     assert (
-        mock_emitter.method_calls[28].args[0].aspectName
-        == "dataProcessInstanceRunEvent"
+        mock_emitter.method_calls[28][1][0].aspectName == "dataProcessInstanceRunEvent"
     )
     assert (
-        mock_emitter.method_calls[28].args[0].entityUrn
+        mock_emitter.method_calls[28][1][0].entityUrn
         == "urn:li:dataProcessInstance:095673536b61e6f25c7691af0d2cc317"
     )
-    assert mock_emitter.method_calls[29].args[0].aspectName == "dataJobInfo"
+    assert mock_emitter.method_calls[29][1][0].aspectName == "dataJobInfo"
     assert (
-        mock_emitter.method_calls[29].args[0].entityUrn
+        mock_emitter.method_calls[29][1][0].entityUrn
         == f"urn:li:dataJob:({expected_dataflow_urn},__main__.transform)"
     )
-    assert mock_emitter.method_calls[30].args[0].aspectName == "dataJobInputOutput"
+    assert mock_emitter.method_calls[30][1][0].aspectName == "dataJobInputOutput"
     assert (
-        mock_emitter.method_calls[30].args[0].entityUrn
+        mock_emitter.method_calls[30][1][0].entityUrn
         == f"urn:li:dataJob:({expected_dataflow_urn},__main__.transform)"
     )
-    assert mock_emitter.method_calls[31].args[0].aspectName == "ownership"
+    assert mock_emitter.method_calls[31][1][0].aspectName == "ownership"
     assert (
-        mock_emitter.method_calls[31].args[0].entityUrn
+        mock_emitter.method_calls[31][1][0].entityUrn
         == f"urn:li:dataJob:({expected_dataflow_urn},__main__.transform)"
     )
-    assert mock_emitter.method_calls[32].args[0].aspectName == "globalTags"
+    assert mock_emitter.method_calls[32][1][0].aspectName == "globalTags"
     assert (
-        mock_emitter.method_calls[32].args[0].entityUrn
+        mock_emitter.method_calls[32][1][0].entityUrn
         == f"urn:li:dataJob:({expected_dataflow_urn},__main__.transform)"
     )
     assert (
-        mock_emitter.method_calls[32].args[0].aspect.tags[0].tag
+        mock_emitter.method_calls[32][1][0].aspect.tags[0].tag
         == f"urn:li:tag:{task_run_ctx.task.tags[0]}"
     )
-    assert mock_emitter.method_calls[33].args[0].aspectName == "browsePaths"
+    assert mock_emitter.method_calls[33][1][0].aspectName == "browsePaths"
     assert (
-        mock_emitter.method_calls[33].args[0].entityUrn
+        mock_emitter.method_calls[33][1][0].entityUrn
         == f"urn:li:dataJob:({expected_dataflow_urn},__main__.transform)"
     )
     assert (
-        mock_emitter.method_calls[34].args[0].aspectName
+        mock_emitter.method_calls[34][1][0].aspectName
         == "dataProcessInstanceProperties"
     )
     assert (
-        mock_emitter.method_calls[34].args[0].entityUrn
+        mock_emitter.method_calls[34][1][0].entityUrn
         == "urn:li:dataProcessInstance:04ba0f8064b2c45f69da571c434f1c69"
     )
     assert (
-        mock_emitter.method_calls[35].args[0].aspectName
+        mock_emitter.method_calls[35][1][0].aspectName
         == "dataProcessInstanceRelationships"
     )
     assert (
-        mock_emitter.method_calls[35].args[0].entityUrn
+        mock_emitter.method_calls[35][1][0].entityUrn
         == "urn:li:dataProcessInstance:04ba0f8064b2c45f69da571c434f1c69"
     )
     assert (
-        mock_emitter.method_calls[36].args[0].aspectName
-        == "dataProcessInstanceRunEvent"
+        mock_emitter.method_calls[36][1][0].aspectName == "dataProcessInstanceRunEvent"
     )
     assert (
-        mock_emitter.method_calls[36].args[0].entityUrn
+        mock_emitter.method_calls[36][1][0].entityUrn
         == "urn:li:dataProcessInstance:04ba0f8064b2c45f69da571c434f1c69"
     )
     assert (
-        mock_emitter.method_calls[37].args[0].aspectName
-        == "dataProcessInstanceRunEvent"
+        mock_emitter.method_calls[37][1][0].aspectName == "dataProcessInstanceRunEvent"
     )
     assert (
-        mock_emitter.method_calls[37].args[0].entityUrn
+        mock_emitter.method_calls[37][1][0].entityUrn
         == "urn:li:dataProcessInstance:04ba0f8064b2c45f69da571c434f1c69"
     )
