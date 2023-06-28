@@ -1,0 +1,20 @@
+{
+  "template": "https://github.com/PrefectHQ/prefect-collection-template",
+  "commit": "e11a3be195f24f60ed3f564dfccb40170ee7c3fa",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "full_name": "Arcyl Data",
+      "email": "shubham.jagtap@gslab.com",
+      "github_organization": "PrefectHQ",
+      "collection_name": "prefect-datahub",
+      "collection_slug": "prefect_datahub",
+      "collection_short_description": "Metadata emitter for datahub",
+      "_copy_without_render": [
+        ".github/workflows/*.yml"
+      ],
+      "_template": "https://github.com/PrefectHQ/prefect-collection-template"
+    }
+  },
+  "directory": null
+}
